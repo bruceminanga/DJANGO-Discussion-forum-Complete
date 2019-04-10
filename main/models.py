@@ -25,7 +25,6 @@ class Messege(models.Model):
     name=models.CharField(max_length = 80)
 
 class Post(models.Model):
-
     department=models.CharField(max_length = 60)
     title=models.CharField(max_length = 60)
     content=RichTextField(max_length = 1000)

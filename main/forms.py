@@ -12,10 +12,10 @@ class PostForm(forms.ModelForm):
         # content = forms.CharField(widgets=CKEditorWidget())
 
 class commentForm(forms.ModelForm):
-    
+
     class Meta:
          model = Comment
-         fields = ( 'content',)        
+         fields = ( 'content',)
 
 Department_Choices = (
     ("Education", "Education"),
@@ -29,4 +29,4 @@ class UserCreateForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "password1", "password2", "department")
+        fields = ("username", "password1", "password2", 'department')
