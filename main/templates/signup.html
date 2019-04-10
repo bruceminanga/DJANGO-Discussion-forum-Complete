@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+<div style="padding:200px;">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Sign in</button>
+  </form>
+</div >
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  {% endblock %}
+<style>
+  form {
+    background-color: brown;
+  }
+    form p {
+      line-height: 24px;
+    }
+    form p  label{
+    margin-left: 24px;
+    }
+  form input{
+    padding: 16px;
+    border-radius: 4px;
+  }
+  ul li {
+    display: none;
+  }
+</style>
+ 

@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <main>
+            <nav class="main-nav">
+                    <ul>
+                        <li> <a href="{% url 'work'%}">How it works</a></li>
+                        <li> <a href="{% url 'support'%}">Support</a></li>
+                        <li> <a href="{% url 'signup' %}">Register</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a style="color:brown" href="{% url 'logout'%}">Logout ({{ user.username }})</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login'%}">Login</a></li>
+                        {% endif %}
+         
+                </ul></nav>
+                <section id="section-one">
+                <!-- Top container -->
+                <section class="top-container">
+                 <header class="showcase">
+                     <h1>Your web presence</h1>
+                     <p>This site helps students understand what they did not understand in class. Press the button below to get started</p>
+         
+                     {% if user.is_authenticated %}
+                     <a href="{% url 'question' %}" class="btn">Get Started</a>
+                     {% else %}
+                     <a href="{% url 'signup' %}" class="btn">Get Started</a>
+                     {% endif %}
+         
+                    </header>
+                    <div class="top-box top-box-a">
+                            <p>Live Interactive Student <br> Participation</p>
+                    </div>
+                    <div class="top-box top-box-b">
+                            <p> Engage your students or class in real time</p>
+                    </div>
+         
+                </section>
+         
+        <section id="about">
+            <h1>Ask a Questions</h1>
+            <p>Use multiple choice questions to identify gaps in understanding, or kick of group discussions with a
+                colourful world cloud.</p>
+            <h1>See instant results</h1>
+            <p>Responses appear in an animated graph or chat embeded in your presentation. Results update live for
+                all to see.</p>
+            <h1>Who can use this site?</h1>
+            <P>Our site can help new commers to get information about the career they undertake in the universities
+                or colleges.
+                It will also be useful for getting information about various technical questions that they failed
+                to get there answers
+                in various platforms. The site is designed for students in the universities and colleges.
+            </P>
+            <h1>What is this website all about?</h1>
+            <p>This website is a discussion forum that unites all students from colleges and universities. It
+                allows students to ask question directly to people Who
+                who have full knowledge in there career or course of study. This people can either be
+                Lecturers/Tutors or even there fellow students.
+            </p>
+        </section>
+        <section id="sec-two">
+            <p>Sign up for your free account</p>
+            <a href="{% url 'signup' %}" class="btn">Sign up now</a>
+        </section>
+
+        </section>
+
+        </section>
+        <section id="section-d" class="grid">
+            <div class="box">
+                <h2>Contact us</h2>
+                <i class="fas fa-phone"></i> <br>
+                <b>Phone Number</b><br>
+                <p><a href="tel:0718761487">0705071138</a></p>
+                <i class="fas fa-envelope-square"></i> <br>
+                <b>Email</b><br>
+                <p><a href="mailto:bruceminanga@gmail.com">studentdiscussion@gmail.com</a></p>
+                <i class="fab fa-facebook-f"></i> <br>
+                <b>Facebook</b><br>
+                <p>Student Discussion Forum</p>
+
+            </div>
+            <div class="box">
+                <h2>About our company</h2>
+                <ul>
+                    <li><a href="#about">Who can use this website?</a> </li>
+                    <li><a href="#about"> What is this website all about?</a> </li>
+                    <li><a href="#about"> Who owns this this website?</a> </li>
+                </ul>
+
+            </div>
+        </section>
+    </main>
+    <!--footer-->
+    <footer>
+        <div class="d">© Copyright Students Forum<br>@Kenya Kisumu County. All Rights Reserved</div>
+    </footer>
+
+</body>
+
+</html>
