@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path
 from django.conf.urls import include
 from .views import search
 from django.conf.urls.static import static
@@ -8,7 +8,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('question/', views.question, name='question'),
-    # path('register/', views.register, name='register'),
     path('support/', views.supportView, name='support'),
     path('work/', views.work, name='work'),
     path('question/', views.question, name='question'),
@@ -21,12 +20,11 @@ urlpatterns = [
     path('post-remove/<int:pk>', views.post_remove, name='post_remove'),
     path('post-edit/<int:pk>', views.post_edit, name='post_edit'),
     path('results/', views.search, name='search'),
-    
-    
 
-    
 
-    
-    
+
+
+
+
+
 ]
-

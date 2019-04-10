@@ -8,10 +8,6 @@ from django.dispatch import receiver
 class Department(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     department=models.CharField(max_length=100)
-    def __str__(self):
-        return self.department
-    def __str__(self):
-        return self.user
 
 @receiver(post_save, sender=User)
 def create_user_department(sender, instance, created, **kwargs):
@@ -29,7 +25,6 @@ class Messege(models.Model):
     name=models.CharField(max_length = 80)
 
 class Post(models.Model):
-
     department=models.CharField(max_length = 60)
     title=models.CharField(max_length = 60)
     content=RichTextField(max_length = 1000)

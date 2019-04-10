@@ -28,8 +28,7 @@ def work(request):
 
 def question(request):
    u = User.objects.get(username=request.user)
-   print(u)
-   question_list = Post.objects.all().order_by('-created_date')
+   question_list = Post.objects.filter(department=u.department.department).order_by('-created_date')
    paginator = Paginator(question_list, 10)
    page= request.GET.get('page')
    questions = paginator.get_page(page)
@@ -40,7 +39,7 @@ def preview(request):
    if request.method == "GET" and request.is_ajax():
       data = request.GET.get('title_prevw', False)
       print(data)
-   
+
    return HttpResponse(data)
 
 
@@ -48,8 +47,8 @@ def preview2(request):
    if request.method == "GET" and request.is_ajax():
       data = request.GET.get('content_prevw', False)
       print(data)
-   
-   return HttpResponse(data)   
+
+   return HttpResponse(data)
 
 
 def post(request):
@@ -60,6 +59,7 @@ def post(request):
          post.published_date = timezone.now()
          print(request.user)
          post.author = request.user
+         post.department = request.user.department.department
          post.save()
 
          return redirect('post_details', pk=post.pk)
@@ -67,7 +67,7 @@ def post(request):
         form = PostForm()
 
    return render(request, 'post.html', {"form": form})
-  
+
 
 def post_details(request, pk):
    post = get_object_or_404(Post, pk=pk)
@@ -81,8 +81,8 @@ def post_details(request, pk):
          comment.author = request.user
          comment.save()
          # return redirect('post_details', pk=post.pk)
-   else:          
-      form  = commentForm()    
+   else:
+      form  = commentForm()
    comments = Comment.objects.filter(post=post)
    return render(request, 'post_details.html', {"post": post, 'form': form, 'comments': comments })
 
@@ -92,6 +92,9 @@ def signup(request):
         form = UserCreateForm(request.POST)
         if form.is_valid():
             form.save()
+            user = User.objects.get(username=form.cleaned_data["username"])
+            user.department.department=form.cleaned_data["department"]
+            user.save()
             return redirect('login')
     else:
         form = UserCreateForm()
@@ -100,8 +103,8 @@ def signup(request):
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
-    return redirect('question')  
-   
+    return redirect('question')
+
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -115,14 +118,12 @@ def post_edit(request, pk):
             return redirect('question')
     else:
         form = PostForm(instance=post)
-    return render(request, 'post.html', {'form': form})   
+    return render(request, 'post.html', {'form': form})
 
 
 
 def search(request):
    template = 'question.html'
-   query = request.get.GET(q) 
+   query = request.get.GET(q)
    results = Post.objects.filter(Q(title__icontains=query) | Q(content__iconains=query))
    return render(request, template, {'form': form})
-
-

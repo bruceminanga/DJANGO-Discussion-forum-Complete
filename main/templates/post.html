@@ -33,7 +33,7 @@
             {% if user.is_authenticated %}
             <a class="far" href="{% url 'logout' %}">/ logout</a>
             <a class="far-two">/ {{ user.username }}</a>
-            <a class="far-two">department {{ user.department }}</a>
+            <a class="far-two">department {{ user.department.department }}</a>
             {% endif %}
 
             {% else %}
