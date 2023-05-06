@@ -1,0 +1,107 @@
+.navigation{
+    height: 38px;
+    background: rgba(209, 202, 209, 0.555);
+    width: 100%;
+}
+
+
+.navigation a{
+    text-decoration: none;
+    padding-top:6px;
+    padding-bottom: 5px; 
+    display: inline-block;   
+}
+
+ 
+
+h1{
+    color: brown;
+    font-size: 40px;
+    
+}
+
+#logo{
+    padding-left: 20px;
+    padding-right: 40px;
+    margin-top: -20px
+
+    
+}
+#major{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.log h2{
+    text-align: center;
+}
+.input{
+    width: 50%;
+}
+
+.btn{ /** for making the button using an anchor tag**/
+    background:rgb(134, 122, 122);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    border:0;
+  }
+
+  .button{
+      text-align: center;
+  }
+   .far{
+      float:right;
+      margin-top: 1px;
+  }
+  .near{
+      margin: 5px;
+  }
+.far-two{
+    float: right;
+    padding-right: 9px;
+}
+
+  .two a{
+      text-decoration: none;
+      color: brown;
+      
+  }
+   .list{
+      display: grid;
+  }
+ 
+   .list li{
+      list-style: none;
+  }
+  .list .header-two li{ 
+      float: right;
+      
+  }
+  .list .header-one{
+      padding-top: 30px;
+  }
+  
+  .fomu{
+      float: right;
+      width: 49%;
+      
+  }
+  .right{
+      float: right;
+      width: 49%;
+  }
+  .right h2 p{
+    width: 49%; 
+    word-wrap: break-word;
+  }
+  #views{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  h4{
+      color: red;
+  }
+
+  
+

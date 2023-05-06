@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'css/main.css'%}">
+  <title>Document</title>
+</head>
+
+<body>
+  <section id="major">
+      <div class="log">
+
+          <a id="logo" href="">Student forum</a>
+          <h2>Student Discussion Forum</h2>
+
+      </div>
+    <nav class="navigation">
+
+      {% block content %}
+      {% if user.is_authenticated %}
+      <a class="near" href="{% url 'index' %}">Home</a>
+      <a class="near" href="{% url 'question' %}"> /Question</a>
+      <a class="near" href="{% url 'post' %}"> /Post</a>
+
+      {% if user.is_authenticated %}
+      <a class="far" href="{% url 'logout' %}">/ logout</a>
+      <a class="far-two">/ {{ user.username }}</a>
+      {% endif %}
+
+      {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">login</a>
+      {% endif %}
+      {% endblock %}
+
+
+    </nav>
+    <h1>{{ post.title }}</h1>
+    <h3>Question Description</h3>
+    <hr>
+    <p>{{ post.content }}</p>
+    <hr>
+    <!-- for displaying posted comments -->
+    {% for each in comments %}
+     <div style="border-left:6px solid rgb(134, 122, 122); height: 100px;"> 
+    <p style="padding-left:10px;"> {{ each.content }}</p> 
+    <p style="padding-left:10px;"> <cite>--answered by {{ each.author }} </cite><small>on {{ each.created_date }}</small> </p></div>
+    {% endfor %}
+    {% if user.username == post.author %}
+    <span>
+      <a href="{% url 'post_remove' pk=post.pk %}"><button>Delete Question</button></a>
+      <a href="{% url 'post_edit' pk=post.pk %}"> <button>Edit Question</button></a>
+    </span>
+    {% else %}
+    <form method="POST" action="">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button>comment</button>
+    </form>
+
+    {% endif %}
+  </section>
+</body>
+
+</html>

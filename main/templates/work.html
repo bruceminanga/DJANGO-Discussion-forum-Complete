@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+     
+            <section id="section-one">
+            <p class="work"> <h1>This is how it works</h1>
+                Ask the audience a question then watch as the chart updates automatically with their responses. When you post a question to the Forum,
+            it will work as if you are in a meeting where you ask questions and wait for someone to respond.</p>
+    <b>Enagage your audience or class in real time</b>
+    <p>Students forum transforms one-sided presentations into two way conversations with the audience. This web based audience response system lets you embed interactive activities directly into your
+        presentation. The audience responds on the web or via sms texting on their phones (If they have your telephone number). <br> <br> Students forum is used by millions of audience members and students every year. Its trusted by over 60 percent of the fortune 500,
+    along with more than 300,000 educators worldwide, during meetings, classes and events.  </p>
+    <h1>Prepare, Present, Interpret</h1>
+    <div class="top-container">
+    <div class="one ">
+<p><h2>Before the meeting</h2> <br>
+You create the question. Customize how the chart looks and how your audience can respond.</p>
+    </div>
+    <div class="two">
+<p><h2>At the meeting</h2> <br>
+It's go time. Ask your question. Invite the audience to respond by visiting a webpage or texting. The chart changes as you watch.</p>
+    </div>
+    <div class="three ">
+<p><h2>Viewing the results</h2><br>
+Customize the look and feel of the live chart with color, font, and image options. You can display live results from any browser, or embed the live chart in your powerpoint, keynote or google slides deck.</p>
+    </div></div>
+    <div class="sign">
+        <h1>Sign Up For Your Free Account</h1>
+        <a href="{% url 'signup'%}" class="btn">Sign up now</a>
+    </div>
+    </section>
+   {% endblock %}

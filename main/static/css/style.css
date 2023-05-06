@@ -1,0 +1,203 @@
+/* css variables*/
+:root{
+  --primary:#ddd;
+  --dark:#333;
+  --light:#fff;
+  --shadow:0 1px 5px rgba(104, 104, 104, 0.8);
+}
+body{
+  background: #ccc;
+margin: 0;
+  line-height: 1.4;
+ 
+}
+#section-one{
+  margin: 30px 50px;
+}
+
+html{
+  box-sizing: border-box; /** if we use padding or anything it doesnt affect the width of the element **/
+font-family: Arial, Helvetica, sans-serif;
+color:var(--dark);
+}
+
+.btn{ /** for making the button using an anchor tag**/
+  background: rebeccapurple;
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border:0;
+}
+/** navigation **/
+.main-nav ul{
+  display: grid;
+  grid-gap:20px;
+  padding:0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr); /** one fraction five times **/
+}  
+.main-nav a{
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding:0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}  
+.main-nav a:hover{
+  background: var(--dark);
+  color: var(--light);
+
+}
+
+
+/* Top container */
+.top-container{
+  display: grid;/** make them in three different parts horizontally **/
+  grid-gap: 20px;
+  grid-template-areas:
+  'showcase showcase top-box-a'
+  'showcase showcase top-box-b';
+}
+
+/* showcase */
+.showcase{
+  grid-area: showcase; /** helps to understand what show cases above mean**/
+  min-height: 400px; /** height for the showcase**/
+  background: url("/static/images/image1.jpg" );
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;/**this is equivalent to 48px (16*3)**/
+}
+
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+
+.showcase p{
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+.top-box-a{
+  grid-area:top-box-a;
+}
+
+.top-box-b{
+  grid-area:top-box-b;
+}
+
+#sec-one{
+    background-image: url(image1.jpg);
+    background: no-repeat;
+}
+img{
+    height: 80%;
+}
+/* form validation */
+#wrap{
+  padding: 5% 5%;
+ 
+ padding-left: 25%;
+
+}
+
+.input{
+  height: 30px;
+  width: 58%;
+}
+
+.check{
+  box-shadow: var(--dark);
+  
+
+}
+/* Styles for how it works */
+.work{
+  text-align: center; /** To put the text to the centre **/
+  align-items: center;
+}
+
+.one{ /** making a box **/
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+}
+
+.two{
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  
+}
+
+.three{
+  background: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  
+}
+
+/* Styles for support */
+.search{
+  width: 70%;
+}
+footer{
+  background:black;
+  color: #fff;
+}
+footer .d{
+text-align: center;
+}
+
+.box ul{
+  list-style: none;
+  text-decoration-line: none;
+}
+.box a{
+  text-decoration: none;
+  color: black;
+}
+#section-d .box{
+  padding: 2em;
+  color: #fff;
+  text-align: center;
+}
+#section-d .box:first-child{
+  background: #2960d4;
+}
+#section-d .box:last-child{
+  background: #333;
+  text-align: center;  
+}
+
+.box ul li :last-child{
+  color: #ccc;
+}
+
+/* Media Queries */
+@media(min-width: 700px){
+	.grid{
+		display: grid;
+		grid-template-columns:1fr repeat(2,minmax(auto,25em)) 1fr;
+	}
+
+	.box {
+		grid-column: span 2;
+	}
+
+}
